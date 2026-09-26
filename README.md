@@ -4,7 +4,7 @@ This project presents an end-to-end data pipeline and risk analysis workflow bui
 
 ---
 
-## 📌 Project Overview & Workflow
+## Project Overview & Workflow
 
 1. **Data Cleaning & Preprocessing**
    - Sourced raw loan application data (`credit_risk_dataset.csv`) from **Kaggle**.
@@ -26,7 +26,7 @@ This project presents an end-to-end data pipeline and risk analysis workflow bui
 
 ---
 
-## 🛠️ How to Run
+## How to Run
 
 1. **Run Notebooks:** Open `notebook/` in Jupyter and run `credit_risk_cleaning.ipynb` followed by `credit_risk_eda.ipynb`.
 2. **Load Database:** Update your MySQL credentials in `fast_database_loader.py` and run:
