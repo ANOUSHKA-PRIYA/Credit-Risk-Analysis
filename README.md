@@ -1,5 +1,4 @@
 # Credit-Risk-Analysis
-End-to-End Credit Risk Pipeline &amp; Analytics
 
 This project presents an end-to-end data pipeline and risk analysis workflow built on a Kaggle Credit Risk Dataset. It focuses on cleaning raw loan applicant data, loading it into a local MySQL database, executing SQL analytics for risk profiling, and visualizing key insights through Tableau dashboards.
 
