@@ -1,34 +1,48 @@
-# Credit-Risk-Analysis
+# 💳 End-to-End Credit Risk Engineering & Analytics Pipeline
 
-This project presents an end-to-end data pipeline and risk analysis workflow built on a Kaggle Credit Risk Dataset. It focuses on cleaning raw loan applicant data, loading it into a local MySQL database, executing SQL analytics for risk profiling, and visualizing key insights through Tableau dashboards.
+A complete **Data Engineering & Business Intelligence Pipeline** built to analyze borrower creditworthiness, predict default probabilities, and identify financial risk factors using the Kaggle Credit Risk Dataset. 
 
----
-
-## Project Overview & Workflow
-
-1. **Data Cleaning & Preprocessing**
-   - Sourced raw loan application data (`credit_risk_dataset.csv`) from **Kaggle**.
-   - Processed and cleaned the data in `credit_risk_cleaning.ipynb` by handling missing values, standardizing formats, and preparing clean records (`credit_risk_cleaned.csv`).
-
-2. **Exploratory Data Analysis (EDA)**
-   - Conducted detailed exploratory data analysis in `credit_risk_eda.ipynb` to understand borrower distributions, income levels, loan amounts, and historical default rates.
-
-3. **MySQL Database Integration**
-   - Configured `fast_database_loader.py` to establish a direct connection to a local MySQL instance (`central_credit_db`).
-   - Automatically loaded the cleaned dataset into MySQL tables for structured storage and SQL querying.
-
-4. **SQL Risk Analysis**
-   - Executed targeted SQL queries in `credit_risk_eda.sql` inside MySQL Workbench to extract metrics like default rates by age group, loan intent, grade risk, and debt-to-income ratios.
-
-5. **Tableau Visual Dashboards**
-   - Built interactive **Tableau Dashboards** to track key credit risk metrics (KPIs), applicant risk categorization, and default probability trends.
-   - Preview captures are stored in the project's `images/` directory.
+This project bridges **Data Preprocessing (Python)**, **Database Architecture (MySQL)**, **Data Analysis (SQL Window Functions & Aggregations)**, and **Executive Reporting (Tableau)**.
 
 ---
 
-## How to Run
+## 📌 Business Problem & Scope
 
-1. **Run Notebooks:** Open `notebook/` in Jupyter and run `credit_risk_cleaning.ipynb` followed by `credit_risk_eda.ipynb`.
-2. **Load Database:** Update your MySQL credentials in `fast_database_loader.py` and run:
-   ```bash
-   python fast_database_loader.py
+Financial institutions lose millions annually to loan defaults. Underwriters need actionable risk metrics and continuous monitoring to answer critical strategic questions:
+- Which borrower segments (age, income level, homeownership status) present the highest probability of default?
+- How do interest rates scale across risk tiers (`Grade A` through `Grade G`)?
+- Does historical default history (`cb_person_default_on_file`) reliably predict future loan performance?
+- What thresholds for **Loan-to-Income Ratio (DTI)** mark a sharp increase in credit risk?
+
+---
+
+## 🏗 System Architecture & Workflow
+
+```text
+┌─────────────────────────┐
+│ Raw Data (Kaggle CSV)   │ ──> 32,581 initial loan application records
+└───────────┬─────────────┘
+            │
+            ▼
+┌─────────────────────────┐
+│ Data Preprocessing      │ ──> Missing value imputation, age/employment outlier removal
+│ (Jupyter / Pandas)      │ ──> Income capping (99th percentile) & feature validation
+└───────────┬─────────────┘
+            │
+            ▼
+┌─────────────────────────┐
+│ Database Loading Engine │ ──> Fast MySQL ingestion via `mysql-connector-python`
+│ (Python / MySQL)        │ ──> Table creation & automated batch loading
+└───────────┬─────────────┘
+            │
+            ▼
+┌─────────────────────────┐
+│ SQL Risk Profiling      │ ──> CTEs, Subqueries, Window Functions (`RANK`, `OVER`, `PARTITION`)
+│ (MySQL Workbench)       │ ──> Risk tier segmentation & comparative benchmarking
+└───────────┬─────────────┘
+            │
+            ▼
+┌─────────────────────────┐
+│ Interactive BI          │ ──> Executive Dashboards, KPI Tracking & Risk Heatmaps
+│ (Tableau Visualizations)│
+└─────────────────────────┘
